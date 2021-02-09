@@ -24,19 +24,20 @@ struct node *root = NULL;
 char compareStr(char *str1, char *str2)
 {
   int i;
-  int identicalTracker = 0;
+  int identical = 0;
   //printf("Str1: %s \n", str1);
   //printf("Str2: %s \n", str2);
   //int value = strcmp(str1, str2);
   // Check if first two letters of strings are identical
-  for (i = 0; i < 2; i++)
+  for (i = 0; i < 3; i++)
   {
-    if ((str1[i] == str2[i]))
+    if ((str1[i] == str2[i]) && strcmp(str1, str2) != 0)
     {
-      identicalTracker++;
+      identical++;
     }
   }
-  return identicalTracker;
+
+  return identical;
 }
 
 // Create new node

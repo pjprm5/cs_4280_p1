@@ -17,10 +17,10 @@
 void concoctStr(char str1[ROWS][COLS], char *str2)
 {
   int i;
-  for (i = 0; i < 30; i ++)
+  for (i = 0; i < 30; i++)
   {
 
-    if (compareStr(str1[i], str2) == 2 && strcmp(str1[i], str2) != 0)
+    if (compareStr(str1[i], str2) == 2 && strcmp(str1[i], str2) == 0)
     {
       char *combined = malloc(strlen(str1[i]) + strlen(str2) + 1);
       printf("%s & %s have the same first two letters! \n", str1[i], str2);
@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
     //printf("Here is the user input: %s \n", input_buffer);
     flag1 = 1; 
     // Tokenize input_buffer
-    token = strtok(input_buffer, " \n");
+    token = strtok(input_buffer, " \n\t");
     while (token != NULL)
     { 
       
@@ -68,7 +68,7 @@ int main(int argc, char* argv[])
       strcpy(str1[i], token);    
       concoctStr(str1, token);
       //root = insert(root, str1[i]);
-      token = strtok(NULL, " \n");
+      token = strtok(NULL, " \n\t");
       i++;
     }
     for (i = 0; i < ROWS; i++)
@@ -85,14 +85,14 @@ int main(int argc, char* argv[])
     while (fgets(input_buffer, sizeof(input_buffer), stdin) != NULL)
     {
       // Tokenize input buffer
-      token = strtok(input_buffer, " \n");
+      token = strtok(input_buffer, " \n\t");
       while (token != NULL)
       {
         printf("%s \n", token);
         strcpy(str1[i], token);
         concoctStr(str1, token);
         //root = insert(root, str1[i]);
-        token = strtok(NULL, " \n");
+        token = strtok(NULL, " \n\t");
         i++;
         //printf("%s \n", input_buffer);
       }
@@ -117,14 +117,14 @@ int main(int argc, char* argv[])
 
     while (fgets(input_buffer, sizeof(input_buffer), fptr) != NULL)
     {
-      token = strtok(input_buffer, " \n");
+      token = strtok(input_buffer, " \n\t");
       while (token != NULL)
       {
         printf("%s \n", token);
         strcpy(str1[i], token);
         concoctStr(str1, token);
         //root = insert(root, str1[i]);
-        token = strtok(NULL, " \n");
+        token = strtok(NULL, " \n\t");
         i++;
       }
       //printf("%s \n", input_buffer);
@@ -151,26 +151,26 @@ int main(int argc, char* argv[])
         break;
       }
     }
-    printf("winner: %s \n", winner);
+    //printf("winner: %s \n", winner);
     strcpy(argv[1], winner);
 
     char tail[20] = ".inorder";
     combined = malloc(strlen(argv[1]) + strlen(tail) + 1);
     strcpy(combined, argv[1]);
     strcat(combined, tail);
-    printf("FILENAME1: %s \n", combined);
+    //printf("FILENAME1: %s \n", combined);
     
     char tail2[20] = ".preorder";
     combined2 = malloc(strlen(argv[1]) + strlen(tail2) + 1);
     strcpy(combined2, argv[1]);
     strcat(combined2, tail2);
-    printf("FILENAME2: %s \n", combined2); 
+    //printf("FILENAME2: %s \n", combined2); 
  
     char tail3[20] = ".postorder";
     combined3 = malloc(strlen(argv[1]) + strlen(tail3) + 1);
     strcpy(combined3, argv[1]);
     strcat(combined3, tail3);
-    printf("FILENAME3: %s \n", combined3);
+    //printf("FILENAME3: %s \n", combined3);
 
     FILE *fptr1 = fopen(combined, "w");
     FILE *fptr2 = fopen(combined2, "w");
