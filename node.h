@@ -70,7 +70,7 @@ struct node* insert(struct node *root, char *str)
   }
   else if (strcmp(str, root->str) == 0) // strings are equal, do nothing
   {
-    printf("%s & %s are duplicates.\n", str, root->str);
+    //printf("%s & %s are duplicates.\n", str, root->str);
   }
   return root;
 }
