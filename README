@@ -1,0 +1,23 @@
+// Paul Passiglia
+// cs_4280
+// Project 0
+// 9/20/21
+
+
+I believe most of the functionality is working correctly besides grouping the strings together in a node that begin with the same letter.
+
+The sample file I am reading in from is called list.sp2021, which contains similar strings to the ones used in example.
+You could put your own file in there to test the invocations:
+./P0 < yourfile
+./P0 yourfile
+or test keyboard input
+./P0
+
+All invocations should work correctly.
+
+command: make
+This will compile P0.c
+
+command: make clean 
+This will get rid of object files, and also all files with extensions .inorder, .postorder, .preorder
+So it cleans up all of the output files and leave my one sample list.sp2021 alone
